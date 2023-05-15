@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "description": "\"Auth Server for NUWE's hackathon\"",
   "main": "index.js",
+  "type": "module",
+
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
   },
   "keywords": [
     "authentification",
@@ -13,5 +16,14 @@
     "jwt"
   ],
   "author": "Alejandro Velardo",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.22"
+  }
 }
