@@ -3,6 +3,8 @@ import cors from 'cors'
 import dotenv from 'dotenv'
 import morgan from 'morgan'
 
+import userControllers from './controllers/userControllers.js'
+
 // Load environment variables 
 dotenv.config()
 
@@ -10,6 +12,7 @@ dotenv.config()
 const app = express()
 
 // Middleware 
+app.use(express.json())
 app.use(cors())
 
 const env = process.env.NODE_ENV || 'development'
@@ -19,9 +22,14 @@ if (env === 'development') {
     }))
 }
 
+// Base endpoint
 app.get("/", (req, res) => {
     res.send("Login & Register server")
 })
+
+// Routers
+app.use('/users', userControllers)
+
 
 // Mounting server
 const port = process.env.PORT
