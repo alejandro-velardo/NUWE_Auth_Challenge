@@ -1,13 +1,6 @@
-POST http://localhost:3090/users/register HTTP/1.1
-content-type: application/json
 
-    {
-        "email": "test2@test.com",
-        "password": "12345678",
-        "repeatpassword": "12345678"
-    }
+## Failed REGISTER not same password
 
-###
 
 POST http://localhost:3090/users/register HTTP/1.1
 content-type: application/json
@@ -16,4 +9,34 @@ content-type: application/json
         "email": "test@test.com",
         "password": "12345678",
         "repeatpassword": "notTheSamePassword"
+    }
+
+
+### Successful REGISTER
+
+POST http://localhost:3090/users/register HTTP/1.1
+content-type: application/json
+
+    {
+        "email": "test3@test.com",
+        "password": "12345678",
+        "repeatpassword": "12345678"
+    }
+
+### Failed LOGIN
+POST http://localhost:3090/users/login HTTP/1.1
+content-type: application/json
+
+    {
+        "email": "test2@test.com",
+        "password": "notThePassword"
+    }
+
+### Successful LOGIN
+POST http://localhost:3090/users/login HTTP/1.1
+content-type: application/json
+
+    {
+        "email": "test2@test.com",
+        "password": "12345678"
     }
