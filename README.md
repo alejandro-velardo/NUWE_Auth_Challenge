@@ -48,6 +48,8 @@ Finally, in the requests.http file, the api can be tested. The requests are alre
 have the REST Client extension installed in VScode. If not, use this file as documentation to understand the API's
 functioning.
 
+## Recognition
+
 Codefactor's code valuation:
     [https://www.codefactor.io/repository/github/alejandro-velardo/nuwe_auth_challenge/](https://www.codefactor.io/repository/github/alejandro-velardo/nuwe_auth_challenge)
  
