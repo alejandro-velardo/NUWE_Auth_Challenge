@@ -1,4 +1,3 @@
-
 ### Failed REGISTER no passwords at all
 
 POST http://localhost:3090/users/register HTTP/1.1
@@ -27,35 +26,40 @@ POST http://localhost:3090/users/register HTTP/1.1
 content-type: application/json
 
     {
-        "email": "test3@test.com",
+        "email": "test@test.com",
         "password": "12345678",
         "repeatpassword": "12345678"
     }
 
 ### Failed LOGIN
+# @name postLoginFailure
 POST http://localhost:3090/users/login HTTP/1.1
 content-type: application/json
 
     {
-        "email": "test2@test.com",
+        "email": "test3@test.com",
         "password": "notThePassword"
     }
 
 ### Successful LOGIN
+# @name postLoginSuccess
 POST http://localhost:3090/users/login HTTP/1.1
 content-type: application/json
 
-    {
-        "email": "test2@test.com",
-        "password": "12345678"
-    }
+{
+    "email": "test3@test.com",
+    "password": "12345678"
+}
+
 
 ### Failed PROTECTED
-GET http://localhost:3090/users/protected HTTP/1.1
-content-type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmVkQXQiOjE2ODQxMzcwMTE1OTYsImVtYWlsIjoidGVzdDJAdGVzdC5jb20iLCJpYXQiOjE2ODQxMzY5NTF9.y9YwJP1ovYVltjRt7Lx8BAIM5Uoj2AftXd_h0aLvIDU
-
-### Successful PROTECTED
+@token = {{postLoginFailure.response.body.token}}
 GET http://localhost:3090/users/protected HTTP/1.1
 content-type: application/json
 Authorization: notAJwt
+
+### Successful PROTECTED
+@token = {{postLoginSuccess.response.body.token}}
+GET http://localhost:3090/users/protected HTTP/1.1
+content-type: application/json
+Authorization: {{token}}

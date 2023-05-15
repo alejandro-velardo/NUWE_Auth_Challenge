@@ -75,16 +75,16 @@ router.post("/login", (req, res) => {
             }
         })
         .then(user => {
+            response.ok = true
             response.token = jsonwebtoken.sign(
                 {
                     expiredAt: new Date().getTime() + Number(process.env.EXPIRED_AFTER),
                     email: user.email,
                 },
                 process.env.SECRET_KEY
-            );
-            response.ok = true;
-            console.log(response)
-            res.json(response);
+            )
+            res.json(response)
+
         })
         .catch(err => res.status(400).json({
             ok: false,
