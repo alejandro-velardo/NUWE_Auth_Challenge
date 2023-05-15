@@ -5,6 +5,8 @@ This is a back-end authentication server developed using NodeJS' Express framewo
 In addition, VS code's extension REST Client is used to provide the testing of the basic features, which are
 Register users, LogIn users and access to private endpoints.
 
+## Installation
+
 To run this project you will need to clone the repository:
 
     git clone https://github.com/alejandro-velardo/NUWE_Auth_Challenge.git
@@ -13,6 +15,8 @@ To run this project you will need to clone the repository:
  
     npm install
  
+ ## Usage
+
 Start MySQL in you computer's terminal:
 
     mysql -u root -p
@@ -36,6 +40,7 @@ the following variables, in capital leters and without space (such as VARIABLE=v
  
     PORT // the number of the port in which the server will be deployed.
     DB_NAME // the name of the database formerly created.
+    DB_PWD // your database password.
     EXPIRED_AFTER // the time, in miliseconds, that the user's session will last.
     SECRET_KEY // a secret key provided to sign the user's tokens.
   
@@ -46,8 +51,12 @@ functioning.
 Codefactor's code valuation:
     [https://www.codefactor.io/repository/github/alejandro-velardo/nuwe_auth_challenge/](https://www.codefactor.io/repository/github/alejandro-velardo/nuwe_auth_challenge)
  
- 
-
- 
     
+## Contact info
+
+>  a.velardo.lucero@gmail.com || Alejandro Velardo Lucero
+
+## License
+
+[MIT](https://opensource.org/licenses/MIT)
   
