@@ -1,15 +1,15 @@
-POST http://localhost:3090/users HTTP/1.1
+POST http://localhost:3090/users/register HTTP/1.1
 content-type: application/json
 
     {
-        "email": "test@test.com",
+        "email": "test2@test.com",
         "password": "12345678",
         "repeatpassword": "12345678"
     }
 
 ###
 
-POST http://localhost:3090/users HTTP/1.1
+POST http://localhost:3090/users/register HTTP/1.1
 content-type: application/json
 
     {

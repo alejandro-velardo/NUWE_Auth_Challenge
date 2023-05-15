@@ -1,17 +1,21 @@
 import express from 'express'
 import { sequelize } from "../config/loadSequelize.js"
 import { User } from '../models/User.js'
+import bcrypt from 'bcrypt';
 
 const router = express.Router()
 
 // POST user
 // @desc register user in DB with encripted password 
-router.post("/", (req, res) => {
+router.post("/register", (req, res) => {
     sequelize.sync().then(() => {
         if (req.body.password == req.body.repeatpassword) {
+            
+            const hash = bcrypt.hashSync(req.body.password, 10)
+
             User.create({
                 email: req.body.email,
-                password: req.body.password
+                password: hash
             })
                 .then((item) => {
                     res.status(200).json({
