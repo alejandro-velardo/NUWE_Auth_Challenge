@@ -23,8 +23,9 @@ export const authenticate = (req, res, next) => {
 };
 
 export const authError = (err, req, res, next) => {
-	console.log("Authentication error")
-	console.log(err)
-	res.status(400).json(err.error);
+	res.status(400).json({
+		ok: false,
+		error: err.error
+	});
 };
 

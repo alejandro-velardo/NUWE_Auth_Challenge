@@ -3,6 +3,7 @@ import { sequelize } from "../config/loadSequelize.js"
 import { User } from '../models/User.js'
 import bcrypt from 'bcrypt'
 import jsonwebtoken from 'jsonwebtoken'
+import { authError, authenticate } from './middleware.js'
 
 const router = express.Router()
 
@@ -12,7 +13,7 @@ router.post("/register", (req, res) => {
     const { password, repeatpassword } = req.body;
 
     sequelize.sync().then(() => {
-        if (password == repeatpassword) {
+        if (password && password == repeatpassword) {
             
             const hash = bcrypt.hashSync(req.body.password, 10)
 
@@ -33,10 +34,18 @@ router.post("/register", (req, res) => {
                     })
                 })
         } else {
-            res.status(200).json({
-                ok: false,
-                error: "Passwords do not match"
-            })
+            if (!password) {
+                res.status(200).json({
+                    ok: false,
+                    error: "Password not provided"
+                })
+            } else {
+                res.status(200).json({
+                    ok: false,
+                    error: "Passwords do not match"
+                })
+            }
+            
         }
 
 
@@ -86,6 +95,12 @@ router.post("/login", (req, res) => {
     })
 })
 
+router.get("/protected", [authenticate, authError], (req, res) => {
+    res.status(200).json({
+        ok: true,
+        message: "This is a protected route."
+    })
+})
 
 
 export default router

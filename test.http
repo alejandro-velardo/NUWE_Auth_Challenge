@@ -1,6 +1,15 @@
 
-## Failed REGISTER not same password
+### Failed REGISTER no passwords at all
 
+POST http://localhost:3090/users/register HTTP/1.1
+content-type: application/json
+
+    {
+        "email": "test@test.com"
+    }
+
+
+### Failed REGISTER not same password
 
 POST http://localhost:3090/users/register HTTP/1.1
 content-type: application/json
@@ -40,3 +49,13 @@ content-type: application/json
         "email": "test2@test.com",
         "password": "12345678"
     }
+
+### Failed PROTECTED
+GET http://localhost:3090/users/protected HTTP/1.1
+content-type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmVkQXQiOjE2ODQxMzcwMTE1OTYsImVtYWlsIjoidGVzdDJAdGVzdC5jb20iLCJpYXQiOjE2ODQxMzY5NTF9.y9YwJP1ovYVltjRt7Lx8BAIM5Uoj2AftXd_h0aLvIDU
+
+### Successful PROTECTED
+GET http://localhost:3090/users/protected HTTP/1.1
+content-type: application/json
+Authorization: notAJwt
