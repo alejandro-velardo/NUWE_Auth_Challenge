@@ -32,7 +32,7 @@ Create table users with the following command:
 Or use the export documents provided in the 'db' directory.
 
 Once this is done, this project has used environment variables, so a '.env' file should be created, providing
-the following variables:
+the following variables, in capital leters and without space (such as VARIABLE=variable):
  
     PORT // the number of the port in which the server will be deployed.
     DB_NAME // the name of the database formerly created.
