@@ -1,0 +1,17 @@
+{
+  "name": "nuwe_auth_challenge",
+  "version": "1.0.0",
+  "description": "\"Auth Server for NUWE's hackathon\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "authentification",
+    "server",
+    "backend",
+    "jwt"
+  ],
+  "author": "Alejandro Velardo",
+  "license": "ISC"
+}
