@@ -47,6 +47,10 @@ Finally, in the requests.http file, the api can be tested. The requests are alre
 have the REST Client extension installed in VScode. If not, use this file as documentation to understand the API's
 functioning.
 
+IMPORTANT: The REST CLient Requests have been declared using PORT 3090. it has been tried to retrieve the PORT N. 
+from the .env file but could not, so it is suggested to use the same port n. in your deployment. If this is not 
+your case, the URLs for every request will have to be changed manually.
+
 ## Recognition
 
 Codefactor's code valuation:
