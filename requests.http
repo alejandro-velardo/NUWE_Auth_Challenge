@@ -1,3 +1,6 @@
+### Entry endpoint
+GET http://localhost:3090/ HTTP/1.1
+
 ### Failed REGISTER no passwords at all
 
 POST http://localhost:3090/users/register HTTP/1.1
