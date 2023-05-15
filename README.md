@@ -29,7 +29,7 @@ Create table users with the following command:
     password VARCHAR(256)
     );
  
-Or use the export documents provided in the 'db' directory.
+Or use MySQL export files provided in the project's 'db' directory.
 
 Once this is done, this project has used environment variables, so a '.env' file should be created, providing
 the following variables, in capital leters and without space (such as VARIABLE=variable):
