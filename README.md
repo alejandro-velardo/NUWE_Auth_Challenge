@@ -1,5 +1,4 @@
 # NUWE_Auth_Challenge
-Authentication server using JWT
 
 This is a back-end authentication server developed using NodeJS' Express framework, MySQL and Json Web Tokens. 
 In addition, VS code's extension REST Client is used to provide the testing of the basic features, which are
